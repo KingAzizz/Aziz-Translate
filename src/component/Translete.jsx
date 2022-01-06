@@ -13,8 +13,7 @@ const Translete = () => {
     const options = {
       method: 'GET',
       url: 'http://localhost:8000/translete',
-      params: {text: words, to: secodaryLanguage, from: primaryLanguage},
-     
+      params: {text: words, to: secodaryLanguage, from: primaryLanguage}
     };
     
     axios.request(options).then((response) => {
