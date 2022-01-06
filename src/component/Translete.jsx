@@ -12,16 +12,13 @@ const Translete = () => {
   function translete() {
     const options = {
       method: 'GET',
-      url: 'https://nlp-translation.p.rapidapi.com/v1/translate',
+      url: 'http://localhost:8000/translete',
       params: {text: words, to: secodaryLanguage, from: primaryLanguage},
-      headers: {
-        'x-rapidapi-host': 'nlp-translation.p.rapidapi.com',
-        'x-rapidapi-key': 'KEY'
-      }
+     
     };
     
     axios.request(options).then((response) => {
-      setResult(response.data['translated_text'][secodaryLanguage]);
+      setResult(response.data);
     }).catch((error) => {
       console.error(error);
     });
@@ -64,6 +61,7 @@ const Translete = () => {
                 rows="8"
                 onChange={(e) => setWords(e.target.value)}
                 value={result}
+                disabled
               ></textarea>
             </td>
             <td>
